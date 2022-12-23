@@ -12,12 +12,15 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
+    likes: {
+      type: Number,
+    },
     comments: [
       {
         comment: {
           type: String,
         },
-        likes: {
+        commentLikes: {
           type: Number,
         },
         author: {
@@ -25,9 +28,6 @@ const postSchema = new Schema(
         },
       },
     ],
-    likes: {
-      type: Number,
-    },
   },
   { timestamps: true }
 );
