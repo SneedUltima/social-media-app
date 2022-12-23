@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="w-screen h-screen bg-odin-blue flex justify-center items-center ">
@@ -40,8 +42,11 @@ const Login = () => {
             <button className="bg-odin-green font-bold text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-green/75 text-nomad-black py-1 font-roboto">
               Login
             </button>
-            <button className="bg-odin-gold font-bold text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-gold/75 text-nomad-black py-1 font-roboto">
-              Signup
+            <button
+              className="bg-odin-gold font-bold text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-gold/75 text-nomad-black py-1 font-roboto"
+              onClick={() => navigate("/signup")}
+            >
+              Create Account
             </button>
           </form>
         </div>
