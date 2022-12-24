@@ -99,6 +99,7 @@ const Login = () => {
             </button>
             <button
               disabled={loading}
+              type="button"
               className="bg-odin-green text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-green/75 text-nomad-black py-1 font-roboto"
               onClick={() => navigate("/login")}
             >

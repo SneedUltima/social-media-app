@@ -1,11 +1,20 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
+  const { login, error, loading } = useLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    await login(email, password);
+    navigate("/");
+  };
 
   return (
     <div className="w-screen h-screen bg-odin-blue flex justify-center items-center ">
@@ -16,7 +25,10 @@ const Login = () => {
           </h1>
         </div>
         <div>
-          <form className="flex flex-col mt-10 py-8 px-8 justify-center gap-2  bg-odin-lightblue mb-20 rounded-2xl drop-shadow-md border-2">
+          <form
+            className="flex flex-col mt-10 py-8 px-8 justify-center gap-2  bg-odin-lightblue mb-20 rounded-2xl drop-shadow-md border-2"
+            onSubmit={handleLogin}
+          >
             <label className="text-2xl text-odin-white font-roboto font-bold">
               Email:
             </label>
@@ -39,10 +51,14 @@ const Login = () => {
               required
             />
 
-            <button className="bg-odin-green text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-green/75 text-nomad-black py-1 font-roboto cursor-pointer">
+            <button
+              type="submit"
+              className="bg-odin-green text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-green/75 text-nomad-black py-1 font-roboto cursor-pointer"
+            >
               Login
             </button>
             <button
+              type="button"
               className="bg-odin-gold text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-gold/75 text-nomad-black py-1 font-roboto cursor-pointer"
               onClick={() => navigate("/signup")}
             >
