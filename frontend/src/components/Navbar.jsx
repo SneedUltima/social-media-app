@@ -4,11 +4,17 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { useLogout } from "../hooks/UseLogout";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const { logout } = useLogout();
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const handleClick = () => setNav(!nav);
   return (
@@ -26,7 +32,10 @@ const Navbar = () => {
             </p>
           </div>
           <div className="hidden md:flex sm:gap-10 gap-4">
-            <p className="text-odin-white text-md sm:text-2xl cursor-pointer">
+            <p
+              onClick={handleLogout}
+              className="text-odin-white text-md sm:text-2xl cursor-pointer"
+            >
               Logout
             </p>
           </div>
