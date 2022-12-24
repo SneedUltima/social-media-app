@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const handleClick = () => setNav(!nav);
   return (
@@ -19,7 +21,9 @@ const Navbar = () => {
         </div>
         <div className="flex gap-12 items-center sm:items-baseline">
           <div>
-            <p className="text-odin-white text-md sm:text-2xl">User</p>
+            <p className="text-odin-white text-md sm:text-2xl">
+              {user ? user.firstName : "Guest"}
+            </p>
           </div>
           <div className="hidden md:flex sm:gap-10 gap-4">
             <p className="text-odin-white text-md sm:text-2xl cursor-pointer">

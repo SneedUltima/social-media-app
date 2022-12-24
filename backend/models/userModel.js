@@ -31,11 +31,11 @@ const userSchema = new Schema({
 userSchema.statics.signup = async function (
   firstName,
   lastName,
-  about,
   email,
-  password
+  password,
+  about
 ) {
-  if (!firstName || !lastName || !about || !email || !password) {
+  if (!firstName || !lastName || !email || !password) {
     throw Error("Please fill in all fields");
   }
   if (!validator.isEmail(email)) {
@@ -61,7 +61,7 @@ userSchema.statics.signup = async function (
     email,
     password: hash,
   });
-
+  console.log("it is done");
   return user;
 };
 
