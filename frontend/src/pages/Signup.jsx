@@ -20,7 +20,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-screen h-auto  bg-odin-blue flex justify-center items-center ">
+    <div className="w-screen h-auto sm:h-screen bg-odin-blue flex justify-center items-center ">
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-10 items-center">
         <div className="px-6">
           <h1 className="text-odin-gold text-5xl sm:text-6xl font-bold pt-4 sm:pt-0">
