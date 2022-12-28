@@ -9,7 +9,6 @@ import { useLogout } from "../hooks/UseLogout";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const { logout } = useLogout();
-  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
   const handleLogout = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
   return (
     <>
-      <div className="w-screen h-[100px] bg-odin-blue drop-shadow-xl flex items-center justify-between px-5 sm:px-10">
+      <div className="w-screen h-[100px] bg-odin-blue border-b-2 border-b-odin-gold flex items-center justify-between px-5 sm:px-10">
         <div>
           <h1 className="font-bold text-odin-gold text-lg sm:text-4xl cursor-pointer">
             odinbook.
