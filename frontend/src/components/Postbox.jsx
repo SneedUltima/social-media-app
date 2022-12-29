@@ -10,6 +10,7 @@ const Postbox = () => {
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
   let author;
+  let likes = 0;
 
   if (user) {
     author = `${user.firstName} ${user.lastName}`;
@@ -18,7 +19,7 @@ const Postbox = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const post = { text, author };
+    const post = { text, author, likes };
 
     const response = await fetch("/posts", {
       method: "POST",
@@ -41,7 +42,7 @@ const Postbox = () => {
   };
 
   return (
-    <div className="mx-5 sm:mx-10 mt-6 sm:3/5 md:w-2/5">
+    <div className="mx-5 sm:mx-10 mt-6 sm:3/5 md:w-3/5">
       <form
         action="#"
         className="flex flex-col gap-1 items-end"
