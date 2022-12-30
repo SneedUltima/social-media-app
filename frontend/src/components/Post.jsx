@@ -7,8 +7,10 @@ import {
   HandThumbUpIcon,
 } from "@heroicons/react/24/outline";
 import { HandThumbUpIcon as HandThumbsUpIconSolid } from "@heroicons/react/24/solid";
+import Commentbox from "./Commentbox";
 
 const Post = ({ post }) => {
+  const [comments, setComments] = useState(false);
   const [like, setLike] = useState(false);
   const [likes, setLikes] = useState(post.likes);
 
@@ -32,9 +34,9 @@ const Post = ({ post }) => {
   };
 
   return (
-    <div className="mx-5 sm:mx-10 mt-6 sm:3/5 md:w-3/5">
+    <div className="mx-5 sm:mx-10 mt-6 md:w-3/5">
       <div className="boxShadow py-2 px-2 w-full h-fit resize-none rounded-xl bg-odin-blue border-odin-gold text-odin-white">
-        <div className="flex justify-between mb-4">
+        <div className="flex flex-col sm:flex-row justify-between mb-4">
           <div className="font-bold">{post.author}</div>
           <div>
             Posted{" "}
@@ -59,12 +61,18 @@ const Post = ({ post }) => {
               {!like ? "Like" : "Liked"}
             </div>
           </button>
-          <button className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1">
+          <button
+            className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1"
+            onClick={() => setComments((comments) => !comments)}
+          >
             <div className="flex justify-center gap-1">
               <ChatBubbleBottomCenterTextIcon className="w-5" />
               <p>Comment</p>
             </div>
           </button>
+        </div>
+        <div className={!comments ? "hidden" : "flex justify-center"}>
+          <Commentbox />
         </div>
       </div>
     </div>
