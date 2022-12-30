@@ -14,9 +14,8 @@ const Post = ({ post }) => {
 
   const handleLike = async (e) => {
     e.preventDefault();
-    setLike((like) => !like);
 
-    const likeCount = { likes: 1 };
+    const likeCount = { likes: !like ? +1 : -1 };
 
     const response = await fetch("/posts/" + post._id, {
       method: "PATCH",
@@ -27,7 +26,8 @@ const Post = ({ post }) => {
     });
 
     if (response.ok) {
-      setLikes(likes + 1);
+      setLikes(!like ? likes + 1 : likes - 1);
+      setLike((like) => !like);
     }
   };
 

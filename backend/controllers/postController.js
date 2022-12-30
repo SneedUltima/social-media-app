@@ -62,7 +62,7 @@ const updatePost = async (req, res) => {
   const post = await Post.findOneAndUpdate(
     { _id: id },
     {
-      $inc: { likes: 1 },
+      $inc: { likes: req.body.likes },
     }
   );
 
