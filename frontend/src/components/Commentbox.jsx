@@ -1,13 +1,15 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { PostsContext } from "../context/PostContext";
 
 const Commentbox = ({ post }) => {
+  const { dispatch } = useContext(PostsContext);
   const { user } = useContext(AuthContext);
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   let author;
 
   if (user) {
@@ -16,6 +18,7 @@ const Commentbox = ({ post }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(false);
 
     const comment = { text, author };
 
@@ -31,9 +34,25 @@ const Commentbox = ({ post }) => {
     }
 
     if (response.ok) {
-      console.log("Added Comment");
+      setLoading(true);
+      setText("");
     }
   };
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/posts");
+      const json = await response.json();
+
+      if (response.ok) {
+        dispatch({ type: "SET_POSTS", payload: json });
+      }
+    };
+
+    return () => {
+      fetchPosts();
+    };
+  }, [loading]);
 
   return (
     <div className="mx-7 sm:mx-12 mt-6 sm:w-full">
