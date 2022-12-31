@@ -73,10 +73,38 @@ const updatePost = async (req, res) => {
   res.status(200).json(post);
 };
 
+const updateComments = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "No such post" });
+  }
+
+  const post = await Post.findOneAndUpdate(
+    { _id: id },
+    {
+      $push: {
+        comments: {
+          comment: req.body.text,
+          commentDate: Date.now(),
+          author: req.body.author,
+        },
+      },
+    }
+  );
+
+  if (!post) {
+    return res.status(404).json({ error: "No such post" });
+  }
+
+  res.status(200).json(post);
+};
+
 module.exports = {
   createPost,
   getPosts,
   getPost,
   deletePost,
   updatePost,
+  updateComments,
 };

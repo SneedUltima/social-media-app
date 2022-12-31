@@ -20,8 +20,9 @@ const postSchema = new Schema(
         comment: {
           type: String,
         },
-        commentLikes: {
-          type: Number,
+        commentDate: {
+          type: Date,
+          default: Date.now,
         },
         author: {
           type: String,

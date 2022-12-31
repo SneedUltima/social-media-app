@@ -6,6 +6,7 @@ const {
   getPost,
   deletePost,
   updatePost,
+  updateComments,
 } = require("../controllers/postController");
 
 const router = express.Router();
@@ -19,5 +20,7 @@ router.post("/", createPost);
 router.delete("/:id", deletePost);
 
 router.patch("/:id", updatePost);
+
+router.patch("/:id/comments", updateComments);
 
 module.exports = router;

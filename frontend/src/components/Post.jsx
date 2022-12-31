@@ -53,7 +53,7 @@ const Post = ({ post }) => {
               className="cursor-pointer hover:underline hover:text-odin-white/90"
               onClick={() => setComments((comments) => !comments)}
             >
-              Comments
+              {post.comments.length} Comments
             </p>
           </div>
         </div>
@@ -83,10 +83,13 @@ const Post = ({ post }) => {
         </div>
         <div className="flex flex-col gap-5">
           <div className={!addComments ? "hidden" : "flex justify-center"}>
-            <Commentbox />
+            <Commentbox post={post} />
           </div>
           <div className={!comments ? "hidden" : "flex justify-center"}>
-            <Comment />
+            {post.comments.length > 0 &&
+              post.comments.map((comment) => (
+                <Comment key={comment._id} comment={comment} />
+              ))}
           </div>
         </div>
       </div>

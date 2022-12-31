@@ -4,13 +4,11 @@ import { useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { PostsContext } from "../context/PostContext";
 
-const Commentbox = () => {
+const Commentbox = ({ post }) => {
   const { user } = useContext(AuthContext);
-  const { dispatch } = useContext(PostsContext);
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
   let author;
-  let likes = 0;
 
   if (user) {
     author = `${user.firstName} ${user.lastName}`;
@@ -19,25 +17,21 @@ const Commentbox = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const comment = { text, author, likes };
+    const comment = { text, author };
 
-    const response = await fetch("/posts", {
-      method: "POST",
+    const response = await fetch("/posts/" + post._id + "/comments", {
+      method: "PATCH",
       body: JSON.stringify(comment),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const json = await response.json();
-
     if (!response.ok) {
-      setError(json.error);
+      setError(error);
     }
 
     if (response.ok) {
-      dispatch({ type: "CREATE_POST", payload: json });
-      setText("");
-      setError("");
+      console.log("Added Comment");
     }
   };
 
@@ -46,7 +40,7 @@ const Commentbox = () => {
       <form
         action="#"
         className="flex flex-col gap-1 items-end"
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
       >
         <textarea
           className="border-none boxShadow py-2 px-2 w-full h-32 resize-none rounded-xl bg-odin-lightblue border-odin-gold text-odin-white"
