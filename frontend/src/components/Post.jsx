@@ -85,11 +85,19 @@ const Post = ({ post }) => {
           <div className={!addComments ? "hidden" : "flex justify-center"}>
             <Commentbox post={post} />
           </div>
-          <div className={!comments ? "hidden" : "flex justify-center"}>
-            {post.comments.length > 0 &&
-              post.comments.map((comment) => (
-                <Comment key={comment._id} comment={comment} />
-              ))}
+          <div className="flex items-center justify-center">
+            <div
+              className={
+                !comments
+                  ? "hidden"
+                  : "flex flex-col justify-center items-center w-fit"
+              }
+            >
+              {post.comments.length > 0 &&
+                post.comments.map((comment) => (
+                  <Comment key={comment._id} comment={comment} />
+                ))}
+            </div>
           </div>
         </div>
       </div>
