@@ -16,30 +16,30 @@ const Commentbox = () => {
     author = `${user.firstName} ${user.lastName}`;
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  //   const post = { text, author, likes };
+    const comment = { text, author, likes };
 
-  //   const response = await fetch("/posts", {
-  //     method: "POST",
-  //     body: JSON.stringify(post),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   const json = await response.json();
+    const response = await fetch("/posts", {
+      method: "POST",
+      body: JSON.stringify(comment),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
 
-  //   if (!response.ok) {
-  //     setError(json.error);
-  //   }
+    if (!response.ok) {
+      setError(json.error);
+    }
 
-  //   if (response.ok) {
-  //     dispatch({ type: "CREATE_POST", payload: json });
-  //     setText("");
-  //     setError("");
-  //   }
-  // };
+    if (response.ok) {
+      dispatch({ type: "CREATE_POST", payload: json });
+      setText("");
+      setError("");
+    }
+  };
 
   return (
     <div className="mx-7 sm:mx-12 mt-6 sm:w-full">

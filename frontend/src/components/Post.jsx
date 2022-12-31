@@ -8,8 +8,10 @@ import {
 } from "@heroicons/react/24/outline";
 import { HandThumbUpIcon as HandThumbsUpIconSolid } from "@heroicons/react/24/solid";
 import Commentbox from "./Commentbox";
+import Comment from "./Comment";
 
 const Post = ({ post }) => {
+  const [addComments, setAddComments] = useState(false);
   const [comments, setComments] = useState(false);
   const [like, setLike] = useState(false);
   const [likes, setLikes] = useState(post.likes);
@@ -34,8 +36,8 @@ const Post = ({ post }) => {
   };
 
   return (
-    <div className="mx-5 sm:mx-10 mt-6 md:w-3/5">
-      <div className="boxShadow py-2 px-2 w-full h-fit resize-none rounded-xl bg-odin-blue border-odin-gold text-odin-white">
+    <div className="mx-5 sm:mx-10 mt-6 w-5/6 md:w-3/5">
+      <div className="boxShadow py-4 px-2 sm:px-4 w-full h-fit resize-none rounded-xl bg-odin-blue border-odin-gold text-odin-white">
         <div className="flex flex-col sm:flex-row justify-between mb-4">
           <div className="font-bold">{post.author}</div>
           <div>
@@ -43,9 +45,17 @@ const Post = ({ post }) => {
             {formatRelative(subDays(new Date(post.createdAt), 3), new Date())}
           </div>
         </div>
-        <div className="mb-4">{post.text}</div>
-        <div className="mb-4">
+        <div className="mb-6">{post.text}</div>
+        <div className="mb-4 flex justify-between">
           <div>{likes} Likes</div>
+          <div>
+            <p
+              className="cursor-pointer hover:underline hover:text-odin-white/90"
+              onClick={() => setComments((comments) => !comments)}
+            >
+              Comments
+            </p>
+          </div>
         </div>
         <div className="flex justify-between gap-4">
           <button
@@ -63,7 +73,7 @@ const Post = ({ post }) => {
           </button>
           <button
             className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1"
-            onClick={() => setComments((comments) => !comments)}
+            onClick={() => setAddComments((addComments) => !addComments)}
           >
             <div className="flex justify-center gap-1">
               <ChatBubbleBottomCenterTextIcon className="w-5" />
@@ -71,8 +81,13 @@ const Post = ({ post }) => {
             </div>
           </button>
         </div>
-        <div className={!comments ? "hidden" : "flex justify-center"}>
-          <Commentbox />
+        <div className="flex flex-col gap-5">
+          <div className={!addComments ? "hidden" : "flex justify-center"}>
+            <Commentbox />
+          </div>
+          <div className={!comments ? "hidden" : "flex justify-center"}>
+            <Comment />
+          </div>
         </div>
       </div>
     </div>
