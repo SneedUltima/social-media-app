@@ -9,7 +9,7 @@ const Commentbox = ({ post }) => {
   const { user } = useContext(AuthContext);
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [addComment, setAddComment] = useState(false);
   let author;
 
   if (user) {
@@ -18,7 +18,7 @@ const Commentbox = ({ post }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(false);
+    setAddComment(false);
 
     const comment = { text, author };
 
@@ -34,7 +34,7 @@ const Commentbox = ({ post }) => {
     }
 
     if (response.ok) {
-      setLoading(true);
+      setAddComment(true);
       setText("");
     }
   };
@@ -52,7 +52,7 @@ const Commentbox = ({ post }) => {
     return () => {
       fetchPosts();
     };
-  }, [loading]);
+  }, [addComment]);
 
   return (
     <div className="mx-7 sm:mx-12 mt-6 sm:w-full">

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useLogout } from "../hooks/UseLogout";
+import guestImage from "../images/guestImage.png";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -24,8 +25,9 @@ const Navbar = () => {
             odinbook.
           </h1>
         </div>
-        <div className="flex gap-12 items-center sm:items-baseline">
-          <div>
+        <div className="flex gap-12 items-center">
+          <div className="flex flex-row gap-2 items-center cursor-pointer">
+            <img src={guestImage} alt="profile" class="w-5 rounded-xl" />
             <p className="text-odin-white text-md sm:text-2xl">
               {user ? user.firstName : "Guest"}
             </p>
