@@ -3,6 +3,7 @@ const Post = require("../models/postModel");
 const {
   createPost,
   getPosts,
+  getPostsByAuthor,
   getPost,
   deletePost,
   updatePost,
@@ -12,6 +13,8 @@ const {
 const router = express.Router();
 
 router.get("/", getPosts);
+
+router.get("/myposts/:id", getPostsByAuthor);
 
 router.get("/:id", getPost);
 

@@ -19,7 +19,7 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
   return (
     <>
-      <div className="w-screen h-[100px] bg-odin-blue border-b-2 border-b-odin-gold flex items-center justify-between px-5 sm:px-10">
+      <div className="w-screen h-[100px] bg-odin-blue border-b-2 border-b-odin-gold flex items-center justify-between px-5 sm:px-10 2xl:px-60">
         <div>
           <Link
             to="/"
@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
         <div className="flex gap-12 items-center">
           <div className="flex flex-row gap-2 items-center cursor-pointer">
-            <img src={guestImage} alt="profile" className="w-5 rounded-xl" />
+            <img src={guestImage} alt="profile" className="w-5 rounded-full" />
             <Link
               to={`${user.id}`}
               className="text-odin-white text-md sm:text-2xl"

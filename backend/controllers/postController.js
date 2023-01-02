@@ -2,14 +2,14 @@ const Post = require("../models/postModel");
 const mongoose = require("mongoose");
 
 const createPost = async (req, res) => {
-  const { text, author, likes } = req.body;
+  const { text, author, likes, id } = req.body;
 
   if (!text || !author) {
     return res.status(400).json({ error: "Please fill in all fields" });
   }
 
   try {
-    const createdPost = await Post.create({ text, author, likes });
+    const createdPost = await Post.create({ text, author, likes, id });
     res.status(200).json(createdPost);
   } catch (error) {
     res.status(400).json({ error: error.Post });
@@ -18,6 +18,13 @@ const createPost = async (req, res) => {
 
 const getPosts = async (req, res) => {
   const posts = await Post.find({}).sort({ createdAt: -1 });
+
+  res.status(200).json(posts);
+};
+
+const getPostsByAuthor = async (req, res) => {
+  const { id } = req.params;
+  const posts = await Post.find({ id: id }).sort({ createdAt: -1 });
 
   res.status(200).json(posts);
 };
@@ -103,6 +110,7 @@ const updateComments = async (req, res) => {
 module.exports = {
   createPost,
   getPosts,
+  getPostsByAuthor,
   getPost,
   deletePost,
   updatePost,

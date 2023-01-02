@@ -10,16 +10,18 @@ const Postbox = () => {
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
   let author;
+  let id;
   let likes = 0;
 
   if (user) {
     author = `${user.firstName} ${user.lastName}`;
+    id = user.id;
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const post = { text, author, likes };
+    const post = { text, author, likes, id };
 
     const response = await fetch("/posts", {
       method: "POST",
