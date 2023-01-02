@@ -6,10 +6,27 @@ import UserInfo from "../components/UserInfo";
 
 const Profile = () => {
   const { handle } = useParams();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
+  const [error, setError] = useState(null);
+
+  console.log(handle);
 
   useEffect(() => {
-    const fetchUser = () => {};
+    const fetchUser = async () => {
+      const response = await fetch(`/user/${handle}`, {
+        method: "GET",
+      });
+      const json = await response.json();
+
+      if (!response.ok) {
+        setError(response.error);
+      }
+      if (response.ok) {
+        console.log(json);
+        setUser(json);
+        console.log(user);
+      }
+    };
 
     return () => {
       fetchUser();
@@ -18,7 +35,8 @@ const Profile = () => {
 
   return (
     <div>
-      <UserInfo />
+      <p>kek</p>
+      <p>{user.firstName}</p>
     </div>
   );
 };

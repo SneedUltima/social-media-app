@@ -27,10 +27,13 @@ const Navbar = () => {
         </div>
         <div className="flex gap-12 items-center">
           <div className="flex flex-row gap-2 items-center cursor-pointer">
-            <img src={guestImage} alt="profile" class="w-5 rounded-xl" />
-            <p className="text-odin-white text-md sm:text-2xl">
+            <img src={guestImage} alt="profile" className="w-5 rounded-xl" />
+            <Link
+              to={`${user.id}`}
+              className="text-odin-white text-md sm:text-2xl"
+            >
               {user ? user.firstName : "Guest"}
-            </p>
+            </Link>
           </div>
           <div className="hidden md:flex sm:gap-10 gap-4">
             <p

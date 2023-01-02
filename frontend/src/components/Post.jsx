@@ -41,7 +41,7 @@ const Post = ({ post }) => {
       <div className="boxShadow py-4 px-2 sm:px-4 w-full h-fit resize-none rounded-xl bg-odin-blue border-odin-gold text-odin-white">
         <div className="flex flex-col sm:flex-row justify-between mb-4">
           <div className="flex gap-2">
-            <img src={guestImage} alt="profile" class="w-5 rounded-xl" />
+            <img src={guestImage} alt="profile" className="w-5 rounded-xl" />
             <div className="font-bold">{post.author}</div>
           </div>
           <div>
