@@ -21,9 +21,12 @@ const Navbar = () => {
     <>
       <div className="w-screen h-[100px] bg-odin-blue border-b-2 border-b-odin-gold flex items-center justify-between px-5 sm:px-10">
         <div>
-          <h1 className="font-bold text-odin-gold text-lg sm:text-4xl cursor-pointer">
+          <Link
+            to="/"
+            className="font-bold text-odin-gold text-lg sm:text-4xl cursor-pointer"
+          >
             odinbook.
-          </h1>
+          </Link>
         </div>
         <div className="flex gap-12 items-center">
           <div className="flex flex-row gap-2 items-center cursor-pointer">

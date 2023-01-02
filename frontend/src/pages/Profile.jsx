@@ -2,7 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import UserInfo from "../components/UserInfo";
+import Navbar from "../components/Navbar";
+import UserAbout from "../components/UserAbout";
 
 const Profile = () => {
   const { handle } = useParams();
@@ -22,9 +23,7 @@ const Profile = () => {
         setError(response.error);
       }
       if (response.ok) {
-        console.log(json);
         setUser(json);
-        console.log(user);
       }
     };
 
@@ -35,8 +34,11 @@ const Profile = () => {
 
   return (
     <div>
-      <p>kek</p>
-      <p>{user.firstName}</p>
+      <Navbar />
+      <div className="flex flex-col items-center bg-odin-lightblue h-screen pb-4">
+        <p>kek</p>
+        <UserAbout user={user} />
+      </div>
     </div>
   );
 };
