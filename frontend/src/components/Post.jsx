@@ -10,6 +10,7 @@ import { HandThumbUpIcon as HandThumbsUpIconSolid } from "@heroicons/react/24/so
 import Commentbox from "./Commentbox";
 import Comment from "./Comment";
 import guestImage from "../images/guestImage.png";
+import { Link } from "react-router-dom";
 
 const Post = ({ post }) => {
   const [addComments, setAddComments] = useState(false);
@@ -42,7 +43,9 @@ const Post = ({ post }) => {
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="flex gap-2">
             <img src={guestImage} alt="profile" className="w-5 rounded-full" />
-            <div className="font-bold">{post.author}</div>
+            <div className="font-bold">
+              <Link to={`${post.id}`}>{post.author}</Link>
+            </div>
           </div>
           <div>
             Posted{" "}
