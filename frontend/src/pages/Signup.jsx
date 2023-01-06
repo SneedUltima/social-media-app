@@ -94,11 +94,13 @@ const Login = () => {
             <label className="text-2xl text-odin-white font-roboto font-bold">
               Profile Image:
             </label>
-            <FileBase
-              type="file"
-              multiple={false}
-              onDone={({ base64 }) => setSelectedFile(base64)}
-            />
+            <div className="text-odin-white">
+              <FileBase
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setSelectedFile(base64)}
+              />
+            </div>
 
             <button
               disabled={loading}

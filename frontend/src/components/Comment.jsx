@@ -12,7 +12,7 @@ const Comment = ({ comment }) => {
             <img
               src={comment.file ? comment.file : guestImage}
               alt="profile"
-              className="h-5 sm:w-5 rounded-full"
+              className="h-5 sm:w-5 rounded-full object-cover"
             />
             <p className="font-bold text-sm sm:text-base">{comment.author}</p>
           </div>

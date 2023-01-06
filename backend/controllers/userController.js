@@ -64,8 +64,15 @@ const getUser = async (req, res) => {
   res.status(200).json(user);
 };
 
+const getUsers = async (req, res) => {
+  const users = await User.find({}).sort({ createdAt: -1 });
+
+  res.status(200).json(users);
+};
+
 module.exports = {
   loginUser,
   signupUser,
   getUser,
+  getUsers,
 };

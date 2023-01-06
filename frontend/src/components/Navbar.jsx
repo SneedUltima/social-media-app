@@ -33,7 +33,7 @@ const Navbar = () => {
             <img
               src={user.selectedFile ? user.selectedFile : guestImage}
               alt="profile"
-              className="w-7 rounded-full"
+              className="w-7 h-7 rounded-full object-cover"
             />
             <Link
               to={`${user.id}`}

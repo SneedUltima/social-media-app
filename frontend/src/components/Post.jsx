@@ -40,12 +40,12 @@ const Post = ({ post }) => {
   return (
     <div className="mx-5 sm:mx-10 w-6/6 md:w-3/5">
       <div className="boxShadow py-4 px-2 sm:px-4 w-full h-fit resize-none rounded-xl bg-odin-blue border-odin-gold text-odin-white">
-        <div className="flex flex-col lg:flex-row justify-between mb-4">
+        <div className="flex flex-col items-center lg:flex-row justify-between mb-4">
           <div className="flex gap-2 items-center">
             <img
               src={post.selectedFile ? post.selectedFile : guestImage}
               alt="profile"
-              className="w-8 rounded-full"
+              className="w-8 h-8 rounded-full object-cover"
             />
             <div className="font-bold">
               <Link to={`${post.id}`}>{post.author}</Link>
