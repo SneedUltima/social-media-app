@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignup } from "../hooks/UseSignup";
+import FileBase from "react-file-base64";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,13 +10,14 @@ const Login = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [about, setAbout] = useState("");
+  const [selectedFile, setSelectedFile] = useState("");
   const { signup, loading, error } = useSignup();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    await signup(firstName, lastName, email, password, about);
+    console.log(selectedFile);
+    await signup(firstName, lastName, email, password, about, selectedFile);
     navigate("/");
   };
 
@@ -88,6 +90,14 @@ const Login = () => {
               className="p-2 rounded resize-none"
               rows="5"
               placeholder="Add some additional information about yourself..."
+            />
+            <label className="text-2xl text-odin-white font-roboto font-bold">
+              Profile Image:
+            </label>
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) => setSelectedFile(base64)}
             />
 
             <button

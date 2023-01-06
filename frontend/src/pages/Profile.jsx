@@ -58,7 +58,10 @@ const Profile = () => {
       <Navbar />
       <div className="flex flex-col bg-odin-lightblue h-fit sm:h-screen pb-4 pt-4 px-8 2xl:px-60">
         <div className="flex items-center gap-2 mb-4">
-          <img src={guestImage} className="w-20 rounded-full" />
+          <img
+            src={user.selectedFile ? user.selectedFile : guestImage}
+            className="w-20 rounded-full"
+          />
           <div>
             <p className="text-odin-white text-3xl font-bold">
               {user.firstName} {user.lastName}

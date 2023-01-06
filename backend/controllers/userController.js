@@ -26,15 +26,23 @@ const loginUser = async (req, res) => {
 };
 
 const signupUser = async (req, res) => {
-  const { firstName, lastName, email, password, about } = req.body;
+  const { firstName, lastName, email, password, about, selectedFile } =
+    req.body;
   console.log("k2");
   try {
-    const user = await User.signup(firstName, lastName, email, password, about);
+    const user = await User.signup(
+      firstName,
+      lastName,
+      email,
+      password,
+      about,
+      selectedFile
+    );
     const token = createToken(user._id);
-    const firstName = user.firstName;
-    const lastName = user.lastName;
     const id = user._id;
-    res.status(200).json({ firstName, lastName, email, token, id });
+    res
+      .status(200)
+      .json({ firstName, lastName, email, token, id, selectedFile });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

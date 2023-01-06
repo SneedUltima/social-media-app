@@ -6,7 +6,14 @@ export const useSignup = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
 
-  const signup = async (firstName, lastName, email, password, about) => {
+  const signup = async (
+    firstName,
+    lastName,
+    email,
+    password,
+    about,
+    selectedFile
+  ) => {
     setLoading(true);
     setError(null);
 
@@ -15,7 +22,14 @@ export const useSignup = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ firstName, lastName, email, password, about }),
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        password,
+        about,
+        selectedFile,
+      }),
     });
     const json = await response.json();
 

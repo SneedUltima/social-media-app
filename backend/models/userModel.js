@@ -26,6 +26,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  selectedFile: {
+    type: String,
+    required: true,
+  },
 });
 
 userSchema.statics.signup = async function (
@@ -33,7 +37,8 @@ userSchema.statics.signup = async function (
   lastName,
   email,
   password,
-  about
+  about,
+  selectedFile
 ) {
   if (!firstName || !lastName || !email || !password) {
     throw Error("Please fill in all fields");
@@ -60,6 +65,7 @@ userSchema.statics.signup = async function (
     about,
     email,
     password: hash,
+    selectedFile,
   });
   console.log("it is done");
   return user;

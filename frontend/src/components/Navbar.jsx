@@ -30,7 +30,11 @@ const Navbar = () => {
         </div>
         <div className="flex gap-12 items-center">
           <div className="flex flex-row gap-2 items-center cursor-pointer">
-            <img src={guestImage} alt="profile" className="w-5 rounded-full" />
+            <img
+              src={user.selectedFile ? user.selectedFile : guestImage}
+              alt="profile"
+              className="w-7 rounded-full"
+            />
             <Link
               to={`${user.id}`}
               className="text-odin-white text-md sm:text-2xl"
