@@ -11,16 +11,18 @@ const Commentbox = ({ post }) => {
   const [error, setError] = useState(null);
   const [addComment, setAddComment] = useState(false);
   let author;
+  let file;
 
   if (user) {
     author = `${user.firstName} ${user.lastName}`;
+    file = user.selectedFile;
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setAddComment(false);
 
-    const comment = { text, author };
+    const comment = { text, author, file };
 
     const response = await fetch("/posts/" + post._id + "/comments", {
       method: "PATCH",

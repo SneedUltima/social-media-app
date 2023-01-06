@@ -2,14 +2,20 @@ const Post = require("../models/postModel");
 const mongoose = require("mongoose");
 
 const createPost = async (req, res) => {
-  const { text, author, likes, id } = req.body;
+  const { text, author, likes, id, selectedFile } = req.body;
 
   if (!text || !author) {
     return res.status(400).json({ error: "Please fill in all fields" });
   }
 
   try {
-    const createdPost = await Post.create({ text, author, likes, id });
+    const createdPost = await Post.create({
+      text,
+      author,
+      likes,
+      id,
+      selectedFile,
+    });
     res.status(200).json(createdPost);
   } catch (error) {
     res.status(400).json({ error: error.Post });
@@ -95,6 +101,7 @@ const updateComments = async (req, res) => {
           comment: req.body.text,
           commentDate: Date.now(),
           author: req.body.author,
+          file: req.body.file,
         },
       },
     }

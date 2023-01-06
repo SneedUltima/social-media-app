@@ -11,17 +11,19 @@ const Postbox = () => {
   const [error, setError] = useState(null);
   let author;
   let id;
+  let selectedFile;
   let likes = 0;
 
   if (user) {
     author = `${user.firstName} ${user.lastName}`;
     id = user.id;
+    selectedFile = user.selectedFile;
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const post = { text, author, likes, id };
+    const post = { text, author, likes, id, selectedFile };
 
     const response = await fetch("/posts", {
       method: "POST",

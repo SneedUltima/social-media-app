@@ -9,7 +9,11 @@ const Comment = ({ comment }) => {
       <div className="border-none boxShadow py-4 px-2 sm:px-8 w-full h-fit resize-none rounded-xl sm:rounded-3xl bg-odin-lightblue border-odin-gold text-odin-white mb-4">
         <div className="flex flex-col sm:flex-row justify-between mb-2 gap-3 sm:gap-0">
           <div className="flex gap-2">
-            <img src={guestImage} alt="profile" className="w-5 rounded-xl" />
+            <img
+              src={comment.file ? comment.file : guestImage}
+              alt="profile"
+              className="w-5 rounded-xl"
+            />
             <p className="font-bold">{comment.author}</p>
           </div>
           <p className="text-sm sm:text-base">

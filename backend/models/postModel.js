@@ -18,6 +18,10 @@ const postSchema = new Schema(
     id: {
       type: String,
     },
+    selectedFile: {
+      type: String,
+      required: true,
+    },
     comments: [
       {
         comment: {
@@ -28,6 +32,9 @@ const postSchema = new Schema(
           default: Date.now,
         },
         author: {
+          type: String,
+        },
+        file: {
           type: String,
         },
       },
