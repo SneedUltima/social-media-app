@@ -5,16 +5,16 @@ import guestImage from "../images/guestImage.png";
 
 const Comment = ({ comment }) => {
   return (
-    <div className="mx-7 sm:mx-12 mt-6 sm:w-full">
+    <div className="mx-7 sm:mx-12 mt-6 w-5/6 sm:w-full">
       <div className="border-none boxShadow py-4 px-2 sm:px-8 w-full h-fit resize-none rounded-xl sm:rounded-3xl bg-odin-lightblue border-odin-gold text-odin-white mb-4">
-        <div className="flex flex-col sm:flex-row justify-between mb-2 gap-3 sm:gap-0">
-          <div className="flex gap-2">
+        <div className="flex flex-col lg:flex-row justify-between mb-2 gap-3 sm:gap-0">
+          <div className="flex gap-2 items-center">
             <img
               src={comment.file ? comment.file : guestImage}
               alt="profile"
-              className="w-5 rounded-xl"
+              className="h-5 sm:w-5 rounded-full"
             />
-            <p className="font-bold">{comment.author}</p>
+            <p className="font-bold text-sm sm:text-base">{comment.author}</p>
           </div>
           <p className="text-sm sm:text-base">
             Commented{" "}

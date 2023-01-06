@@ -38,7 +38,7 @@ const Post = ({ post }) => {
   };
 
   return (
-    <div className="mx-5 sm:mx-10 w-5/6 md:w-3/5">
+    <div className="mx-5 sm:mx-10 w-6/6 md:w-3/5">
       <div className="boxShadow py-4 px-2 sm:px-4 w-full h-fit resize-none rounded-xl bg-odin-blue border-odin-gold text-odin-white">
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="flex gap-2 items-center">
