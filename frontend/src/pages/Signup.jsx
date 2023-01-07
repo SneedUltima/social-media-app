@@ -30,22 +30,22 @@ const Login = () => {
             <span className="text-odin-white">social</span>
             <span className="text-odin-brightblue">scape.</span>
           </h1>
-          <ul className="text-odin-white flex flex-col gap-4 mt-4 font-bold text-2xl font-roboto">
-            <li className="flex gap-2">
-              <CheckCircleIcon className="w-7 text-odin-brightblue" />A place to
-              express your ideas and thoughts
+          <ul className="text-odin-white flex flex-col gap-4 mt-4 font-bold text-xl sm:text-2xl font-roboto">
+            <li className="flex gap-2 items-center">
+              <CheckCircleIcon className="w-7 h-7 text-odin-brightblue" />
+              <p>Express your thoughts</p>
             </li>
             <li className="flex gap-2">
-              <CheckCircleIcon className="w-7 text-odin-brightblue" />
-              Connect with others
+              <CheckCircleIcon className="w-7 h-7 text-odin-brightblue" />
+              <p>Connect with others</p>
             </li>
             <li className="flex gap-2">
-              <CheckCircleIcon className="w-7 text-odin-brightblue" />
-              Free
+              <CheckCircleIcon className="w-7 h-7 text-odin-brightblue" />
+              <p>Free</p>
             </li>
           </ul>
         </div>
-        <div className="sm:w-96">
+        <div className="sm:w-96 w-64">
           <form
             className="flex flex-col mt-10 py-8 px-8 justify-center gap-2  bg-odin-lightblue mb-20 rounded-2xl drop-shadow-md border-2"
             onSubmit={handleSubmit}
