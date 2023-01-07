@@ -58,7 +58,9 @@ const Post = ({ post }) => {
         </div>
         <div className="mb-6">{post.text}</div>
         <div className="mb-4 flex justify-between">
-          <div>{likes} Likes</div>
+          <div>
+            {likes} {likes === 1 ? "Like" : "Likes"}
+          </div>
           <div>
             <p
               className="cursor-pointer hover:underline hover:text-odin-white/90"
