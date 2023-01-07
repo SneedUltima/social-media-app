@@ -18,8 +18,11 @@ const loginUser = async (req, res) => {
     const firstName = user.firstName;
     const lastName = user.lastName;
     const id = user._id;
+    const selectedFile = user.selectedFile;
 
-    res.status(200).json({ firstName, lastName, email, token, id });
+    res
+      .status(200)
+      .json({ firstName, lastName, email, token, id, selectedFile });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../context/AuthContext";
 import { useLogout } from "../hooks/UseLogout";
 import guestImage from "../images/guestImage.png";
@@ -43,12 +43,15 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:flex sm:gap-10 gap-4">
-            <p
-              onClick={handleLogout}
-              className="text-odin-white text-md sm:text-2xl cursor-pointer"
-            >
-              Logout
-            </p>
+            <div className="flex justify-center items-center border-2 py-1 px-1 border-odin-green rounded-xl hover:bg-odin-green">
+              <ArrowLeftOnRectangleIcon className="w-7 text-odin-white" />
+              <p
+                onClick={handleLogout}
+                className="text-odin-white text-md sm:text-2xl cursor-pointer"
+              >
+                Logout
+              </p>
+            </div>
           </div>
           <div className="md:hidden" onClick={handleClick}>
             {!nav ? (
@@ -66,7 +69,15 @@ const Navbar = () => {
             : "absolute bg-odin-blue w-full px-5 py-4 flex flex-col gap-2"
         }
       >
-        <p className="text-odin-white text-md sm:text-2xl border-b-2">Logout</p>
+        <p className="text-odin-white text-md sm:text-2xl border-b-2">
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={handleLogout}
+          >
+            <ArrowLeftOnRectangleIcon className="w-6 text-odin-white" />
+            <p>Logout</p>
+          </div>
+        </p>
       </div>
     </>
   );
