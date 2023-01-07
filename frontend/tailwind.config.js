@@ -10,10 +10,12 @@ module.exports = {
     colors: {
       "odin-grey": "rgb(36,37,37)",
       "odin-white": "rgb(255,255,255)",
-      "odin-blue": "rgb(16,24,38)",
+      "odin-blue": "rgb(17,24,39)",
       "odin-lightblue": "rgb(31,41,55)",
+      "odin-brightblue": "rgb(28,101,243)",
       "odin-green": "rgb(12,148,137)",
       "odin-gold": "rgb(212,156,108)",
+      "odin-neutral": "rgb(229 229 229)",
     },
   },
   plugins: [],

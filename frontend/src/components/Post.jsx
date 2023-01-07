@@ -51,7 +51,7 @@ const Post = ({ post }) => {
               <Link to={`${post.id}`}>{post.author}</Link>
             </div>
           </div>
-          <div>
+          <div className="text-odin-white/75">
             Posted{" "}
             {formatRelative(subDays(new Date(post.createdAt), 3), new Date())}
           </div>
@@ -72,7 +72,7 @@ const Post = ({ post }) => {
         </div>
         <div className="flex justify-between gap-4">
           <button
-            className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1 transition-colors"
+            className=" bg-odin-brightblue text-odin-white border-none w-20 font-bold rounded hover:bg-odin-brightblue/75 flex-1 py-1 transition-colors"
             onClick={handleLike}
           >
             <div className="flex justify-center gap-1">
@@ -85,7 +85,7 @@ const Post = ({ post }) => {
             </div>
           </button>
           <button
-            className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1 transition-colors"
+            className=" bg-odin-brightblue text-odin-white border-none w-20 font-bold rounded hover:bg-odin-brightblue/75 flex-1 py-1 transition-colors"
             onClick={() => setAddComments((addComments) => !addComments)}
           >
             <div className="flex justify-center gap-1">
@@ -95,7 +95,13 @@ const Post = ({ post }) => {
           </button>
         </div>
         <div className="flex flex-col gap-5">
-          <div className={!addComments ? "hidden" : "flex justify-center"}>
+          <div
+            className={
+              !addComments
+                ? "hidden"
+                : "flex justify-center transition-transform"
+            }
+          >
             <Commentbox post={post} />
           </div>
           <div className="flex items-center justify-center">
@@ -103,7 +109,7 @@ const Post = ({ post }) => {
               className={
                 !comments
                   ? "hidden"
-                  : "flex flex-col justify-center items-center w-fit"
+                  : "flex flex-col justify-center items-center w-fit transition-transform"
               }
             >
               {post.comments.length > 0 &&

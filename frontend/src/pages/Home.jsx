@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col lg:flex-row justify-center items-center sm:items-start bg-odin-lightblue h-fit">
+      <div className="flex flex-col lg:flex-row justify-center items-center sm:items-start bg-odin-lightblue min-h-screen">
         <div className="flex flex-col items-center pb-4 gap-8 w-6/6 sm:w-4/6">
           <Postbox />
           {posts && posts.map((post) => <Post key={post._id} post={post} />)}

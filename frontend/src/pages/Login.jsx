@@ -17,11 +17,12 @@ const Login = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-odin-blue flex justify-center items-center ">
+    <div className="w-screen min-h-screen bg-odin-blue flex justify-center items-center ">
       <div className="flex flex-col sm:flex-row gap-10 items-center ">
         <div className="px-6">
           <h1 className="text-odin-gold text-5xl sm:text-6xl font-bold">
-            odinbook.
+            <span className="text-odin-white">social</span>
+            <span className="text-odin-brightblue">scape.</span>
           </h1>
         </div>
         <div>
@@ -29,37 +30,37 @@ const Login = () => {
             className="flex flex-col mt-10 py-8 px-8 justify-center gap-2  bg-odin-lightblue mb-20 rounded-2xl drop-shadow-md border-2"
             onSubmit={handleLogin}
           >
-            <label className="text-2xl text-odin-white font-roboto font-bold">
+            <label className="text-2xl text-odin-white font-roboto">
               Email:
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="p-2 rounded"
+              className="p-2 rounded bg-odin-neutral"
               required
             />
 
-            <label className="text-2xl text-odin-white font-roboto font-bold">
+            <label className="text-2xl text-odin-white font-roboto">
               Password:
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="p-2 rounded"
+              className="p-2 rounded bg-odin-neutral"
               required
             />
 
             <button
               type="submit"
-              className="bg-odin-green text-2xl rounded-xl mt-2 hover:bg-odin-green/75 transition-colors text-nomad-black py-1 font-roboto cursor-pointer"
+              className="bg-odin-brightblue text-2xl rounded-xl mt-2 hover:bg-odin-brightblue/75 transition-colors text-odin-white font-bold py-1 font-roboto cursor-pointer"
             >
               Login
             </button>
             <button
               type="button"
-              className="bg-odin-gold text-2xl rounded-xl mt-2 hover:bg-odin-gold/75 transition-colors text-nomad-black py-1 font-roboto cursor-pointer"
+              className="bg-odin-white text-2xl rounded-xl mt-2 hover:bg-odin-white/75 transition-colors text-nomad-black  py-1 font-roboto cursor-pointer"
               onClick={() => navigate("/signup")}
             >
               Create Account

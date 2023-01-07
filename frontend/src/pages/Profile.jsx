@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import FriendsList from "../components/FriendsList";
 import Navbar from "../components/Navbar";
 import UserAbout from "../components/UserAbout";
 import guestImage from "../images/guestImage.png";
@@ -60,13 +59,13 @@ const Profile = () => {
         <div className="flex items-center gap-2 mb-4">
           <img
             src={user.selectedFile ? user.selectedFile : guestImage}
-            className="w-20 h-20 object-cover rounded-full"
+            className="w-20 h-20 object-cover rounded-full ring-4 ring-gray-300"
           />
           <div>
             <p className="text-odin-white text-3xl font-bold">
               {user.firstName} {user.lastName}
             </p>
-            <p className="text-odin-white text-base font-bold">
+            <p className="text-odin-white/75 text-base font-bold">
               @{user.firstName}
               {user.lastName}
             </p>
@@ -75,7 +74,6 @@ const Profile = () => {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-0">
           <div className="flex flex-col gap-4 w-96">
             <UserAbout user={user} />
-            <FriendsList user={user} />
           </div>
           <div className="flex flex-col items-center align-top w-full gap-4">
             {posts && posts.map((post) => <Post key={post._id} post={post} />)}

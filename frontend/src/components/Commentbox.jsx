@@ -58,11 +58,7 @@ const Commentbox = ({ post }) => {
 
   return (
     <div className="mx-7 sm:mx-12 mt-6 sm:w-full">
-      <form
-        action="#"
-        className="flex flex-col gap-1 items-end"
-        onSubmit={handleSubmit}
-      >
+      <form action="#" className="flex flex-col gap-1" onSubmit={handleSubmit}>
         <textarea
           className="border-none boxShadow py-2 px-2 w-full h-32 resize-none rounded-xl bg-odin-lightblue border-odin-gold text-odin-white "
           cols="30"
@@ -73,7 +69,7 @@ const Commentbox = ({ post }) => {
         ></textarea>
         <button
           type="submit"
-          className=" bg-odin-gold text-odin-white border-none w-20 font-bold rounded hover:bg-odin-gold/75 transition-colors"
+          className=" bg-odin-brightblue text-odin-white border-none w-20 font-bold rounded hover:bg-odin-brightblue/75 transition-colors"
         >
           Post
         </button>

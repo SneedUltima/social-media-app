@@ -19,13 +19,14 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
   return (
     <>
-      <div className="w-screen h-[100px] bg-odin-blue border-b-2 border-b-odin-gold flex items-center justify-between px-5 sm:px-10 2xl:px-60">
+      <div className="w-screen h-[100px] bg-odin-blue border-b-2 border-b-odin-brightblue flex items-center justify-between px-5 sm:px-10 2xl:px-60">
         <div>
           <Link
             to="/"
             className="font-bold text-odin-gold text-lg sm:text-4xl cursor-pointer"
           >
-            odinbook.
+            <span className="text-odin-white">social</span>
+            <span className="text-odin-brightblue">scape.</span>
           </Link>
         </div>
         <div className="flex gap-12 items-center">
@@ -33,7 +34,7 @@ const Navbar = () => {
             <img
               src={user.selectedFile ? user.selectedFile : guestImage}
               alt="profile"
-              className="w-7 h-7 rounded-full object-cover"
+              className="w-7 h-7 rounded-full object-cover ring-4 ring-gray-300"
             />
             <Link
               to={`${user.id}`}
@@ -43,7 +44,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:flex sm:gap-10 gap-4">
-            <div className="flex justify-center items-center border-2 py-1 px-1 border-odin-green rounded-xl hover:bg-odin-green transition-colors">
+            <div className="flex justify-center items-center border-2 py-1 px-1 border-odin-brightblue rounded-xl hover:bg-odin-brightblue transition-colors">
               <ArrowLeftOnRectangleIcon className="w-7 text-odin-white" />
               <p
                 onClick={handleLogout}

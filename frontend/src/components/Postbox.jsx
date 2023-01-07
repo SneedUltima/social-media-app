@@ -53,7 +53,7 @@ const Postbox = () => {
         onSubmit={handleSubmit}
       >
         <textarea
-          className="border-none boxShadow py-2 px-2 w-full h-32 resize-none rounded-xl bg-odin-blue border-odin-gold text-odin-white"
+          className="border-none boxShadow py-2 px-2 w-full h-32 resize-none rounded-xl bg-odin-blue text-odin-white"
           cols="30"
           rows="30"
           placeholder="What's going on..."
@@ -62,7 +62,7 @@ const Postbox = () => {
         ></textarea>
         <button
           type="submit"
-          className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 transition-colors"
+          className=" bg-odin-brightblue text-odin-white border-none w-20 font-bold rounded hover:bg-odin-brightblue/75 transition-colors"
         >
           Post
         </button>
