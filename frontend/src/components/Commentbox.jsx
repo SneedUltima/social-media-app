@@ -64,7 +64,7 @@ const Commentbox = ({ post }) => {
         onSubmit={handleSubmit}
       >
         <textarea
-          className="border-none boxShadow py-2 px-2 w-full h-32 resize-none rounded-xl bg-odin-lightblue border-odin-gold text-odin-white"
+          className="border-none boxShadow py-2 px-2 w-full h-32 resize-none rounded-xl bg-odin-lightblue border-odin-gold text-odin-white "
           cols="30"
           rows="30"
           placeholder="Add Comment..."
@@ -73,7 +73,7 @@ const Commentbox = ({ post }) => {
         ></textarea>
         <button
           type="submit"
-          className=" bg-odin-gold text-odin-white border-none w-20 font-bold rounded hover:bg-odin-gold/75"
+          className=" bg-odin-gold text-odin-white border-none w-20 font-bold rounded hover:bg-odin-gold/75 transition-colors"
         >
           Post
         </button>

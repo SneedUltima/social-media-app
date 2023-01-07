@@ -62,7 +62,7 @@ const Postbox = () => {
         ></textarea>
         <button
           type="submit"
-          className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75"
+          className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 transition-colors"
         >
           Post
         </button>

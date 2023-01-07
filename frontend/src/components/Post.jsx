@@ -72,7 +72,7 @@ const Post = ({ post }) => {
         </div>
         <div className="flex justify-between gap-4">
           <button
-            className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1"
+            className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1 transition-colors"
             onClick={handleLike}
           >
             <div className="flex justify-center gap-1">
@@ -85,7 +85,7 @@ const Post = ({ post }) => {
             </div>
           </button>
           <button
-            className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1"
+            className=" bg-odin-green text-odin-white border-none w-20 font-bold rounded hover:bg-odin-green/75 flex-1 py-1 transition-colors"
             onClick={() => setAddComments((addComments) => !addComments)}
           >
             <div className="flex justify-center gap-1">

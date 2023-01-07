@@ -33,7 +33,11 @@ const UserList = () => {
 
   return (
     <div className="bg-odin-blue rounded-xl boxShadow mt-6 px-10 pb-3 w-fit">
-      <div className="font-bold text-odin-white px-4 py-4 text-2xl">Users</div>
+      <div className="flex justify-center">
+        <div className="font-bold text-odin-white px-4 py-4 text-2xl">
+          Users
+        </div>
+      </div>
       <div className="flex flex-col gap-2 py-2 px-2">
         <div className="flex flex-col gap-2 items-start text-odin-white">
           {users.map((user) => (

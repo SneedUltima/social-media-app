@@ -43,7 +43,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:flex sm:gap-10 gap-4">
-            <div className="flex justify-center items-center border-2 py-1 px-1 border-odin-green rounded-xl hover:bg-odin-green">
+            <div className="flex justify-center items-center border-2 py-1 px-1 border-odin-green rounded-xl hover:bg-odin-green transition-colors">
               <ArrowLeftOnRectangleIcon className="w-7 text-odin-white" />
               <p
                 onClick={handleLogout}
@@ -66,18 +66,18 @@ const Navbar = () => {
         className={
           !nav
             ? "hidden"
-            : "absolute bg-odin-blue w-full px-5 py-4 flex flex-col gap-2"
+            : "absolute bg-odin-blue w-full px-5 py-4 flex flex-col gap-2 transition-opacity"
         }
       >
-        <p className="text-odin-white text-md sm:text-2xl border-b-2">
+        <div className="text-odin-white text-md sm:text-2xl border-b-2 ">
           <div
-            className="flex items-center cursor-pointer"
+            className="flex items-center cursor-pointer hover:text-odin-white/75"
             onClick={handleLogout}
           >
-            <ArrowLeftOnRectangleIcon className="w-6 text-odin-white" />
+            <ArrowLeftOnRectangleIcon className="w-6 text-odin-white " />
             <p>Logout</p>
           </div>
-        </p>
+        </div>
       </div>
     </>
   );

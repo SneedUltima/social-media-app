@@ -53,13 +53,13 @@ const Login = () => {
 
             <button
               type="submit"
-              className="bg-odin-green text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-green/75 text-nomad-black py-1 font-roboto cursor-pointer"
+              className="bg-odin-green text-2xl rounded-xl mt-2 hover:bg-odin-green/75 transition-colors text-nomad-black py-1 font-roboto cursor-pointer"
             >
               Login
             </button>
             <button
               type="button"
-              className="bg-odin-gold text-2xl rounded-xl mt-2 transition duration-150 hover:bg-odin-gold/75 text-nomad-black py-1 font-roboto cursor-pointer"
+              className="bg-odin-gold text-2xl rounded-xl mt-2 hover:bg-odin-gold/75 transition-colors text-nomad-black py-1 font-roboto cursor-pointer"
               onClick={() => navigate("/signup")}
             >
               Create Account
