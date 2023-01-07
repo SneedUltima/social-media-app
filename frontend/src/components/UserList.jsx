@@ -2,6 +2,7 @@ import React from "react";
 import guestImage from "../images/guestImage.png";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -41,9 +42,9 @@ const UserList = () => {
                 src={user.selectedFile}
                 className="w-8 h-8 rounded-full object-cover"
               />
-              <p>
+              <Link to={`${user._id}`}>
                 {user.firstName} {user.lastName}
-              </p>
+              </Link>
             </div>
           ))}
         </div>

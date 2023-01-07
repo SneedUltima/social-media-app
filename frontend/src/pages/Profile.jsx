@@ -60,7 +60,7 @@ const Profile = () => {
         <div className="flex items-center gap-2 mb-4">
           <img
             src={user.selectedFile ? user.selectedFile : guestImage}
-            className="w-20 rounded-full"
+            className="w-20 h-20 object-cover rounded-full"
           />
           <div>
             <p className="text-odin-white text-3xl font-bold">
