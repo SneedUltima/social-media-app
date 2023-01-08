@@ -5,7 +5,7 @@ import { useSignup } from "../hooks/UseSignup";
 import FileBase from "react-file-base64";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
-const Login = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -19,7 +19,6 @@ const Login = () => {
     e.preventDefault();
     console.log(selectedFile);
     await signup(firstName, lastName, email, password, about, selectedFile);
-    navigate("/");
   };
 
   return (
@@ -106,6 +105,7 @@ const Login = () => {
               className="p-2 rounded resize-none bg-odin-neutral"
               rows="5"
               placeholder="Add some additional information about yourself..."
+              required
             />
             <label className="text-2xl text-odin-white font-roboto">
               Profile Image:
@@ -133,7 +133,11 @@ const Login = () => {
             >
               Login with Account
             </button>
-            {error && <div className="text-red-700">{error}</div>}
+            {error && (
+              <div className="flex justify-center text-odin-red font-bold mt-2 text-lg">
+                {error}
+              </div>
+            )}
           </form>
         </div>
       </div>
@@ -141,4 +145,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

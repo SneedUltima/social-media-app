@@ -40,14 +40,16 @@ userSchema.statics.signup = async function (
   about,
   selectedFile
 ) {
-  if (!firstName || !lastName || !email || !password) {
-    throw Error("Please fill in all fields");
+  if (!firstName || !lastName || !email || !password || !selectedFile) {
+    throw Error("Please fill in all fields and upload picture");
   }
   if (!validator.isEmail(email)) {
     throw Error("Email is not valid");
   }
   if (!validator.isStrongPassword(password)) {
-    throw Error("Password is not valid or strong");
+    throw Error(
+      "Password is needs to contain at least a capital letter, number and special character and be over 6 letters in length"
+    );
   }
 
   const exists = await this.findOne({ email });

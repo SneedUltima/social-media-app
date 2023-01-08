@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const useSignup = () => {
   const { dispatch } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
+  const navigate = useNavigate();
 
   const signup = async (
     firstName,
@@ -44,6 +46,7 @@ export const useSignup = () => {
       dispatch({ type: "LOGIN", payload: json });
 
       setLoading(false);
+      navigate("/");
     }
   };
 
