@@ -6,11 +6,13 @@ import Navbar from "../components/Navbar";
 import UserAbout from "../components/UserAbout";
 import guestImage from "../images/guestImage.png";
 import Post from "../components/Post";
+import Spinner from "../components/Spinner";
 
 const Profile = () => {
   const { handle } = useParams();
   const [user, setUser] = useState({});
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
 
   console.log(handle);
@@ -36,6 +38,7 @@ const Profile = () => {
   }, [handle]);
 
   useEffect(() => {
+    setLoading(true);
     const fetchPosts = async () => {
       const response = await fetch(`/posts/myposts/${handle}`, {
         method: "GET",
@@ -43,6 +46,7 @@ const Profile = () => {
       const json = await response.json();
 
       if (response.ok) {
+        setLoading(false);
         setPosts(json);
       }
     };
@@ -76,7 +80,11 @@ const Profile = () => {
             <UserAbout user={user} />
           </div>
           <div className="flex flex-col items-center align-top w-full gap-4">
-            {posts && posts.map((post) => <Post key={post._id} post={post} />)}
+            {!loading ? (
+              posts && posts.map((post) => <Post key={post._id} post={post} />)
+            ) : (
+              <Spinner />
+            )}
           </div>
         </div>
       </div>
