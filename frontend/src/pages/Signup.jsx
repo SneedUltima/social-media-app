@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSignup } from "../hooks/UseSignup";
 import FileBase from "react-file-base64";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import Spinner from "../components/Spinner";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -121,9 +122,9 @@ const Signup = () => {
             <button
               disabled={loading}
               type="submit"
-              className="bg-odin-brightblue text-2xl rounded-xl mt-2 transition-colors hover:bg-odin-brightblue/75 text-odin-white font-bold py-1 font-roboto"
+              className="bg-odin-brightblue text-2xl rounded-xl mt-2 transition-colors hover:bg-odin-brightblue/75 text-odin-white font-bold py-1 font-roboto flex items-center justify-center"
             >
-              Create Account
+              {loading && <Spinner />}Create Account
             </button>
             <button
               disabled={loading}
