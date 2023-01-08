@@ -14,6 +14,7 @@ module.exports = {
       "odin-lightblue": "rgb(31,41,55)",
       "odin-brightblue": "rgb(28,101,243)",
       "odin-green": "rgb(12,148,137)",
+      "odin-red": "rgb(185 28 28)",
       "odin-gold": "rgb(212,156,108)",
       "odin-neutral": "rgb(229 229 229)",
     },

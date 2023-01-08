@@ -19,7 +19,7 @@ const Navbar = () => {
   const handleClick = () => setNav(!nav);
   return (
     <>
-      <div className="w-screen h-[100px] bg-odin-blue border-b-2 border-b-odin-brightblue flex items-center justify-between px-5 sm:px-10 2xl:px-60">
+      <div className="w-screen h-[100px] bg-odin-blue flex items-center justify-between px-5 sm:px-10 2xl:px-60">
         <div>
           <Link
             to="/"

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
@@ -54,9 +55,9 @@ const Login = () => {
 
             <button
               type="submit"
-              className="bg-odin-brightblue text-2xl rounded-xl mt-2 hover:bg-odin-brightblue/75 transition-colors text-odin-white font-bold py-1 font-roboto cursor-pointer"
+              className="bg-odin-brightblue text-2xl rounded-xl mt-2 hover:bg-odin-brightblue/75 transition-colors text-odin-white font-bold py-1 font-roboto cursor-pointer flex items-center justify-center"
             >
-              Login
+              {loading && <Spinner />}Login
             </button>
             <button
               type="button"
@@ -65,6 +66,11 @@ const Login = () => {
             >
               Create Account
             </button>
+            {error && (
+              <div className="flex justify-center text-odin-red font-bold mt-2 text-lg">
+                {error}
+              </div>
+            )}
           </form>
         </div>
       </div>
