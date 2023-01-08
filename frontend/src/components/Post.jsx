@@ -56,7 +56,15 @@ const Post = ({ post }) => {
             {formatRelative(subDays(new Date(post.createdAt), 3), new Date())}
           </div>
         </div>
-        <div className="mb-6">{post.text}</div>
+        <div className="flex items-center justify-center mb-4">
+          {post.postImage && (
+            <img
+              src={post.postImage}
+              className="object-cover w-80 h-80 rounded"
+            ></img>
+          )}
+        </div>
+        <div className="mb-6 flex justify-center">{post.text}</div>
         <div className="mb-4 flex justify-between">
           <div>
             {likes} {likes === 1 ? "Like" : "Likes"}

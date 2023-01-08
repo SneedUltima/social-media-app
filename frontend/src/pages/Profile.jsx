@@ -59,7 +59,7 @@ const Profile = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-col bg-odin-lightblue h-fit sm:h-screen pb-4 pt-4 px-8 2xl:px-60">
+      <div className="flex flex-col bg-odin-lightblue h-fit sm:min-h-screen pb-4 pt-4 px-8 2xl:px-60">
         <div className="flex items-center gap-2 mb-4">
           <img
             src={user.selectedFile ? user.selectedFile : guestImage}

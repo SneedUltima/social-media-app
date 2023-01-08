@@ -9,6 +9,7 @@ module.exports = {
     },
     colors: {
       "odin-grey": "rgb(36,37,37)",
+      "odin-lightgrey": "rgb(55,64,80)",
       "odin-white": "rgb(255,255,255)",
       "odin-blue": "rgb(17,24,39)",
       "odin-lightblue": "rgb(31,41,55)",

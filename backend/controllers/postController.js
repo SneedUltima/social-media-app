@@ -2,7 +2,7 @@ const Post = require("../models/postModel");
 const mongoose = require("mongoose");
 
 const createPost = async (req, res) => {
-  const { text, author, likes, id, selectedFile } = req.body;
+  const { text, author, likes, id, selectedFile, postImage } = req.body;
 
   if (!text || !author) {
     return res.status(400).json({ error: "Please fill in all fields" });
@@ -15,6 +15,7 @@ const createPost = async (req, res) => {
       likes,
       id,
       selectedFile,
+      postImage,
     });
     res.status(200).json(createdPost);
   } catch (error) {
