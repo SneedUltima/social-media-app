@@ -69,7 +69,6 @@ userSchema.statics.signup = async function (
     password: hash,
     selectedFile,
   });
-  console.log("it is done");
   return user;
 };
 

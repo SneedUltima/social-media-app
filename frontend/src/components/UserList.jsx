@@ -24,10 +24,8 @@ const UserList = () => {
       }
 
       if (response.ok) {
-        console.log(json);
         setLoading(false);
         setUsers((prevState) => [...json]);
-        console.log(users);
       }
     };
 
@@ -53,7 +51,7 @@ const UserList = () => {
         >
           {!loading ? (
             users.map((user) => (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2" key={user._id}>
                 <img
                   src={user.selectedFile}
                   className="w-8 h-8 rounded-full object-cover"

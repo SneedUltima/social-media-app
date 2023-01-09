@@ -31,7 +31,6 @@ const loginUser = async (req, res) => {
 const signupUser = async (req, res) => {
   const { firstName, lastName, email, password, about, selectedFile } =
     req.body;
-  console.log("k2");
   try {
     const user = await User.signup(
       firstName,

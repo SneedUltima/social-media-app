@@ -18,7 +18,6 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(selectedFile);
     await signup(firstName, lastName, email, password, about, selectedFile);
   };
 

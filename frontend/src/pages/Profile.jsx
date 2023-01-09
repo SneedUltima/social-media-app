@@ -15,8 +15,6 @@ const Profile = () => {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
 
-  console.log(handle);
-
   useEffect(() => {
     const fetchUser = async () => {
       const response = await fetch(`/user/${handle}`, {

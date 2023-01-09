@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
-import { useLogin } from "../hooks/useLogin";
+import { useLogin } from "../hooks/UseLogin";
 
 const Login = () => {
   const { login, error, loading } = useLogin();
@@ -14,6 +14,12 @@ const Login = () => {
     e.preventDefault();
 
     await login(email, password);
+    navigate("/");
+  };
+
+  const handleGuestLogin = async (e) => {
+    e.preventDefault();
+    await login("guest@mail.com", `${process.env.REACT_APP_GUEST_LOGIN}`);
     navigate("/");
   };
 
@@ -39,7 +45,6 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="p-2 rounded bg-odin-neutral"
-              required
             />
 
             <label className="text-2xl text-odin-white font-roboto">
@@ -50,7 +55,6 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="p-2 rounded bg-odin-neutral"
-              required
             />
 
             <button
@@ -58,6 +62,12 @@ const Login = () => {
               className="bg-odin-brightblue text-2xl rounded-xl mt-2 hover:bg-odin-brightblue/75 transition-colors text-odin-white font-bold py-1 font-roboto cursor-pointer flex items-center justify-center"
             >
               {loading && <Spinner />}Login
+            </button>
+            <button
+              onClick={handleGuestLogin}
+              className="bg-odin-gold text-2xl rounded-xl mt-2 hover:bg-odin-gold/75 transition-colors text-odin-white font-bold py-1 font-roboto cursor-pointer flex items-center justify-center"
+            >
+              {loading && <Spinner />}Sign in as Guest
             </button>
             <button
               type="button"
