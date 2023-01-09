@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid";
@@ -11,8 +11,10 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
   const { logout } = useLogout();
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
+    navigate("/");
     logout();
   };
 
@@ -37,7 +39,7 @@ const Navbar = () => {
               className="w-7 h-7 rounded-full object-cover ring-4 ring-gray-300"
             />
             <Link
-              to={`${user.id}`}
+              to={`/${user.id}`}
               className="text-odin-white text-md sm:text-2xl"
             >
               {user ? user.firstName : "Guest"}

@@ -48,7 +48,7 @@ const Post = ({ post }) => {
               className="w-8 h-8 rounded-full object-cover"
             />
             <div className="font-bold">
-              <Link to={`${post.id}`}>{post.author}</Link>
+              <Link to={`/${post.id}`}>{post.author}</Link>
             </div>
           </div>
           <div className="text-odin-white/75">
