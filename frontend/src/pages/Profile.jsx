@@ -1,7 +1,6 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import UserAbout from "../components/UserAbout";
 import guestImage from "../images/guestImage.png";

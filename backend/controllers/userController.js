@@ -6,7 +6,6 @@ const createToken = (_id) => {
   return jwt.sign({ _id: _id }, process.env.SECRET, { expiresIn: "3d" });
 };
 
-// creating web tokens on login or signup
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 

@@ -1,2 +1,0 @@
-GUEST?
-Remove console.logs

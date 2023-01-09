@@ -1,5 +1,4 @@
 import React from "react";
-import guestImage from "../images/guestImage.png";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";

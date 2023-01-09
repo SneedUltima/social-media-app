@@ -1,7 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { useContext } from "react";
-import { useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Post from "../components/Post";
