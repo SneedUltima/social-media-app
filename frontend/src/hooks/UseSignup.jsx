@@ -19,25 +19,28 @@ export const useSignup = () => {
     setLoading(true);
     setError(null);
 
-    const response = await fetch("/user/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        firstName,
-        lastName,
-        email,
-        password,
-        about,
-        selectedFile,
-      }),
-    });
+    const response = await fetch(
+      "https://socialscape-app.onrender.com/user/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+          about,
+          selectedFile,
+        }),
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {
-      setError(json.error);
       setLoading(false);
+      setError(json.error);
     }
 
     if (response.ok) {

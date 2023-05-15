@@ -12,9 +12,12 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       setLoading(true);
-      const response = await fetch("/user/getusers", {
-        method: "GET",
-      });
+      const response = await fetch(
+        "https://socialscape-app.onrender.com/user/getusers",
+        {
+          method: "GET",
+        }
+      );
       const json = await response.json();
 
       if (!response.ok) {
@@ -48,21 +51,17 @@ const UserList = () => {
               : "flex justify-center"
           }
         >
-          {!loading ? (
-            users.map((user) => (
-              <div className="flex items-center gap-2" key={user._id}>
-                <img
-                  src={user.selectedFile}
-                  className="w-8 h-8 rounded-full object-cover"
-                />
-                <Link to={`${user._id}`}>
-                  {user.firstName} {user.lastName}
-                </Link>
-              </div>
-            ))
-          ) : (
-            <Spinner />
-          )}
+          {users.map((user) => (
+            <div className="flex items-center gap-2" key={user._id}>
+              <img
+                src={user.selectedFile}
+                className="w-8 h-8 rounded-full object-cover"
+              />
+              <Link to={`${user._id}`}>
+                {user.firstName} {user.lastName}
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </div>

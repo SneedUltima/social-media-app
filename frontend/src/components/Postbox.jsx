@@ -29,7 +29,7 @@ const Postbox = () => {
 
     const post = { text, author, likes, id, selectedFile, postImage };
 
-    const response = await fetch("/posts", {
+    const response = await fetch("https://socialscape-app.onrender.com/posts", {
       method: "POST",
       body: JSON.stringify(post),
       headers: {

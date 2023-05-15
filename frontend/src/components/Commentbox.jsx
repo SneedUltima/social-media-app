@@ -24,13 +24,16 @@ const Commentbox = ({ post }) => {
 
     const comment = { text, author, file };
 
-    const response = await fetch("/posts/" + post._id + "/comments", {
-      method: "PATCH",
-      body: JSON.stringify(comment),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://socialscape-app.onrender.com/posts/" + post._id + "/comments",
+      {
+        method: "PATCH",
+        body: JSON.stringify(comment),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (!response.ok) {
       setError(error);
     }
@@ -43,7 +46,9 @@ const Commentbox = ({ post }) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("/posts");
+      const response = await fetch(
+        "https://socialscape-app.onrender.com/posts"
+      );
       const json = await response.json();
 
       if (response.ok) {

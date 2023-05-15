@@ -16,9 +16,12 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const response = await fetch(`/user/${handle}`, {
-        method: "GET",
-      });
+      const response = await fetch(
+        `https://socialscape-app.onrender.com/user/${handle}`,
+        {
+          method: "GET",
+        }
+      );
       const json = await response.json();
 
       if (!response.ok) {
@@ -37,9 +40,12 @@ const Profile = () => {
   useEffect(() => {
     setLoading(true);
     const fetchPosts = async () => {
-      const response = await fetch(`/posts/myposts/${handle}`, {
-        method: "GET",
-      });
+      const response = await fetch(
+        `https://socialscape-app.onrender.com/posts/myposts/${handle}`,
+        {
+          method: "GET",
+        }
+      );
       const json = await response.json();
 
       if (response.ok) {
@@ -77,11 +83,7 @@ const Profile = () => {
             <UserAbout user={user} />
           </div>
           <div className="flex flex-col items-center align-top w-full gap-4">
-            {!loading ? (
-              posts && posts.map((post) => <Post key={post._id} post={post} />)
-            ) : (
-              <Spinner />
-            )}
+            {posts && posts.map((post) => <Post key={post._id} post={post} />)}
           </div>
         </div>
       </div>

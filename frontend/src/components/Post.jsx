@@ -23,13 +23,16 @@ const Post = ({ post }) => {
 
     const likeCount = { likes: !like ? +1 : -1 };
 
-    const response = await fetch("/posts/" + post._id, {
-      method: "PATCH",
-      body: JSON.stringify(likeCount),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://socialscape-app.onrender.com/posts/" + post._id,
+      {
+        method: "PATCH",
+        body: JSON.stringify(likeCount),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response.ok) {
       setLikes(!like ? likes + 1 : likes - 1);
